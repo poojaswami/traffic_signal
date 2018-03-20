@@ -1,0 +1,98 @@
+<html>
+	<head>
+		<title>Traffic Signal</title>
+		<style>
+			#div1,#div2,#div3{
+				height:100px;
+				width:100px;
+				background-color:grey;
+				border-radius:100%;
+				border:1px solid grey;
+			}
+			#outer{
+				position:fixed;
+				background-color:black;
+				width:150px;
+				height:350px;
+				left:1350px;
+				top:83px;
+				padding-top:30px;
+				box-shadow:10px 0 10px grey;
+				
+			}
+			#header{
+				position:fixed;
+				height:50px;
+				width:200px;
+				top:20px;
+				left:100px;
+			}
+			#middle{
+				position:fixed;
+				height:290px;
+				width:50px;
+				background-color:darkgrey;
+				left:1400px;
+				top:463px;
+			}
+			
+			#myVideo {
+				position:fixed;
+				right: 0;
+				bottom: 0;
+				min-width: 100%; 
+				min-height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<video autoplay muted loop id="myVideo">
+			<source src="road.mp4" type="video/mp4">
+		</video>
+		<div id="header" align="center">
+			<button type="button" onclick="red()">STOP</button>
+			<button type="button" onclick="yellow()">Ready To Go</button>
+			<button type="button" onclick="green()">GO</button>
+		</div>
+		<div id="outer" align="center">
+			<div id="div1"></div>
+			<div id="div2"></div>
+			<div id="div3"></div>
+		</div>
+		<div id="middle"></div>
+		
+		
+		<script>
+			var video = document.getElementById("myVideo");
+			function red(){
+				document.getElementById("div1").style.backgroundColor="red";
+				document.getElementById("div1").style.boxShadow="0 0 20px red";
+				document.getElementById("div2").style.backgroundColor="grey";
+				document.getElementById("div3").style.backgroundColor="grey";
+				document.getElementById("div3").style.boxShadow="none";
+				document.getElementById("div2").style.boxShadow="none";
+				video.pause();
+				  
+			}		
+			function green(){
+				document.getElementById("div1").style.backgroundColor="grey";
+				document.getElementById("div2").style.backgroundColor="grey";
+				document.getElementById("div3").style.backgroundColor="green";
+				document.getElementById("div3").style.boxShadow="0 0 20px green";
+				document.getElementById("div1").style.boxShadow="none";
+				document.getElementById("div2").style.boxShadow="none";
+				video.play();
+				
+			}
+			function yellow(){
+				document.getElementById("div1").style.backgroundColor="grey";
+				document.getElementById("div2").style.backgroundColor="yellow";
+				document.getElementById("div2").style.boxShadow="0 0 20px yellow";
+				document.getElementById("div3").style.backgroundColor="grey";
+				document.getElementById("div3").style.boxShadow="none";
+				document.getElementById("div1").style.boxShadow="none";
+				video.pause();
+			}
+		</script>
+	</body>
+</html>
